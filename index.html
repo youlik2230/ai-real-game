@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI圖片辨識遊戲 - 培養數位素養</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 開始畫面 -->
+        <div id="start-screen" class="screen active">
+            <div class="welcome-card card">
+                <div class="card__body">
+                    <h1>AI圖片辨識遊戲</h1>
+                    <p class="subtitle">培養數位素養 • 分辨真實與AI生成圖片</p>
+                    
+                    <div class="game-info">
+                        <div class="info-item">
+                            <h3>遊戲規則</h3>
+                            <ul>
+                                <li>共有10組圖片，每組包含一張真實圖片和一張AI生成圖片</li>
+                                <li>請選擇您認為是真實拍攝的圖片</li>
+                                <li>每答對一題得10分，滿分100分</li>
+                                <li>測試您的圖片辨識能力</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn--primary btn--lg" id="start-game">開始遊戲</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 遊戲畫面 -->
+        <div id="game-screen" class="screen hidden">
+            <div class="game-header">
+                <div class="progress-info">
+                    <span id="question-counter">第1題 / 共10題</span>
+                    <span id="score-display">分數：0分</span>
+                </div>
+            </div>
+
+            <div class="question-card card">
+                <div class="card__body">
+                    <h2 id="question-title">第1題：風景</h2>
+                    <p class="question-instruction">請選擇您認為是真實拍攝的圖片</p>
+                    
+                    <div class="image-container">
+                        <div class="image-option" data-choice="left">
+                            <img id="left-image" src="" alt="選項A">
+                            <button class="btn btn--outline choose-btn" data-choice="left">選擇此圖</button>
+                        </div>
+                        
+                        <div class="image-option" data-choice="right">
+                            <img id="right-image" src="" alt="選項B">
+                            <button class="btn btn--outline choose-btn" data-choice="right">選擇此圖</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 答案反饋畫面 -->
+        <div id="feedback-screen" class="screen hidden">
+            <div class="feedback-card card">
+                <div class="card__body">
+                    <div id="feedback-content">
+                        <div class="feedback-result">
+                            <h2 id="feedback-title">恭喜答對！</h2>
+                            <p id="feedback-message">這確實是真實拍攝的照片。</p>
+                        </div>
+                        
+                        <div class="current-score">
+                            <span>目前分數：<span id="current-score">10</span>分</span>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn--primary" id="next-question">下一題</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 結果畫面 -->
+        <div id="result-screen" class="screen hidden">
+            <div class="result-card card">
+                <div class="card__body">
+                    <h1>遊戲結束</h1>
+                    
+                    <div class="final-score">
+                        <h2>您的總分</h2>
+                        <div class="score-display">
+                            <span id="final-score">0</span> / 100分
+                        </div>
+                    </div>
+                    
+                    <div class="evaluation">
+                        <h3 id="evaluation-title">評價</h3>
+                        <p id="evaluation-text"></p>
+                    </div>
+                    
+                    <div class="education-message">
+                        <h3>重要提醒</h3>
+                        <p>這個遊戲展示了AI生成圖片技術的進步程度。作為教育工作者，我們需要：</p>
+                        <ul>
+                            <li>培養學生的批判性思維</li>
+                            <li>教導學生質疑網上資訊的真實性</li>
+                            <li>提倡查證資料來源的重要性</li>
+                            <li>建立良好的數位素養和資訊判斷能力</li>
+                        </ul>
+                    </div>
+                    
+                    <button class="btn btn--primary btn--lg" id="restart-game">重新開始</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
